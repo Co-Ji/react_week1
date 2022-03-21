@@ -1,5 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { Route } from "react-router-dom";
+
 import Week from "./Week";
 import Score from "./Score";
 
@@ -17,8 +19,12 @@ const App = () => {
     return (
         <Container>
             <h2 style={{ textAlign: "center" }}>내 일주일은?</h2>
-            <Week day_list={day_list} />
-            <Score />
+            <Route
+                path="/"
+                exact
+                render={(props) => <Week day_list={day_list} />}
+            />
+            <Route path="/score" component={Score} />
         </Container>
     );
 };

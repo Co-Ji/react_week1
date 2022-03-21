@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const Score = (props) => {
+    let history = useHistory();
+
     return (
         <>
             <div>월요일 평점 남기기</div>
@@ -12,7 +15,13 @@ const Score = (props) => {
                 <Point></Point>
                 <Point></Point>
             </ScoreBox>
-            <Save>평점 남기기</Save>
+            <Save
+                onClick={() => {
+                    history.push("/");
+                }}
+            >
+                평점 남기기
+            </Save>
         </>
     );
 };

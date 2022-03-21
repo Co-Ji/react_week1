@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const Week = (props) => {
+    let history = useHistory();
+
     const day_list = props.day_list;
 
     return day_list.map((list, index) => {
@@ -15,7 +18,12 @@ const Week = (props) => {
                     <Score></Score>
                     <Score></Score>
                     <Score></Score>
-                    <Triangle key={index}></Triangle>
+                    <Triangle
+                        key={index}
+                        onClick={() => {
+                            history.push("/score");
+                        }}
+                    ></Triangle>
                 </WeekBox>
             </>
         );
